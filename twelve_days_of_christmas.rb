@@ -6,14 +6,8 @@ module TwelveDaysOfChristmas
       puts self.output
     end
 
-    def self.write
-      IO.write("output.txt", self.output)
-    end
-
-    private
-
     def self.output
-      (1..Gift.list.length).to_a.map { |day| Verse.new(day).output }.join("\n\n")
+      (1..Gift.list.length).to_a.map { |day| Verse.new(day).output }.join("\n\n") + "."
     end
 
   end
@@ -38,7 +32,7 @@ module TwelveDaysOfChristmas
     end
 
     def intro_line
-      "On the #{NumberHelper.ordinalize(@day)} day of Christmas my true love gave to me"
+      "On the #{Number.new(@day).to_ordinal} day of Christmas my true love gave to me"
     end
 
     def other_lines
@@ -58,7 +52,7 @@ module TwelveDaysOfChristmas
     end
 
     def to_text 
-      "#{NumberHelper.articalize(@day)} #{self.class.list[@day-1]}"
+      "#{Number.new(@day).to_article} #{self.class.list[@day-1]}"
     end
 
     def self.list
@@ -80,11 +74,15 @@ module TwelveDaysOfChristmas
 
   end
 
-  class NumberHelper
+  class Number
 
-    def self.ordinalize(n)
-      n.to_s + (
-        case n 
+    def initialize(number)
+      @number = number
+    end
+
+    def to_ordinal
+      @number.to_s + (
+        case @number
         when 1
           "st"
         when 2
@@ -97,8 +95,8 @@ module TwelveDaysOfChristmas
       )
     end
 
-    def self.articalize(n)
-      n == 1 ? "a" : n
+    def to_article
+      @number == 1 ? "a" : @number
     end
 
   end
