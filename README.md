@@ -6,5 +6,6 @@ Directions:
 - cd to root directly
 - run bash script ("./run.sh")
 - enjoy!
+(or, you can view the output.txt file above to save time)
 
 
