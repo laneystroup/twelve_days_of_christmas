@@ -104,7 +104,3 @@ module TwelveDaysOfChristmas
   end
 
 end
-
-def reload!
-  load "./song.rb"
-end
