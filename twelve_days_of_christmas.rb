@@ -7,7 +7,7 @@ module TwelveDaysOfChristmas
     end
 
     def self.output
-      (1..Gift.list.length).to_a.map { |day| Verse.new(day).output }.join("\n\n") + "."
+      (1..Gift.list.length).to_a.map { |day| Verse.new(day).output }.join("\n\n")
     end
 
   end
@@ -19,16 +19,13 @@ module TwelveDaysOfChristmas
     end
 
     def output
-      "#{intro_line}:\n#{gift_lines_joined}."
+      lines.map { |l| Line.new(l, lines).to_human }.join("\n")
     end
 
     private
 
-    def gift_lines_joined
-      [
-        gift_lines[0..-2].join(",\n"), 
-        gift_lines[-1]
-      ].join(",\nand ")
+    def lines
+      [intro_line, gift_lines].flatten
     end
 
     def intro_line
@@ -41,6 +38,43 @@ module TwelveDaysOfChristmas
 
     def included_days
       1..@day
+    end
+
+  end
+
+  class Line
+
+    def initialize(line, lines)
+      @line = line
+      @lines = lines
+    end
+
+    def to_human
+      [prefix, @line].compact.join(" ") + punctuation
+    end
+
+    def punctuation
+      if first?
+        ":"
+      elsif last?
+        "."
+      else
+        ","
+      end
+    end
+
+    def prefix
+      "and" if last?
+    end
+
+    private
+
+    def first?
+      @line == @lines[0]
+    end
+
+    def last?
+      @line == @lines[-1]
     end
 
   end
