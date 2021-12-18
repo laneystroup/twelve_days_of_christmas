@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+require 'twelve_days_of_christmas'
+TwelveDaysOfChristmas::Song.new.print

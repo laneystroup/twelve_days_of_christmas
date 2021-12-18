@@ -1,8 +1,8 @@
 module TwelveDaysOfChristmas
 end
 
-require './lib/twelve_days_of_christmas/gift'
-require './lib/twelve_days_of_christmas/song'
-require './lib/twelve_days_of_christmas/verse'
-require './lib/twelve_days_of_christmas/line'
-require './lib/twelve_days_of_christmas/number'
+require 'twelve_days_of_christmas/gift'
+require 'twelve_days_of_christmas/song'
+require 'twelve_days_of_christmas/verse'
+require 'twelve_days_of_christmas/line'
+require 'twelve_days_of_christmas/number'
