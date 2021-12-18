@@ -19,23 +19,23 @@ module TwelveDaysOfChristmas
     end
 
     def output
-      [
-        lines[0..-2].join(",\n"), 
-        lines[-1]
-      ].join(",\nand ")
+      "#{intro_line}:\n#{gift_lines_joined}."
     end
 
     private
 
-    def lines
-      [intro_line, other_lines].flatten
+    def gift_lines_joined
+      [
+        gift_lines[0..-2].join(",\n"), 
+        gift_lines[-1]
+      ].join(",\nand ")
     end
 
     def intro_line
       "On the #{Number.new(@day).to_ordinal} day of Christmas my true love gave to me"
     end
 
-    def other_lines
+    def gift_lines
       (1..@day).to_a.reverse.map { |d| Gift.new(d).to_text }
     end
 
