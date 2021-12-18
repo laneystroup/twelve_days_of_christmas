@@ -6,6 +6,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Laney Stroup"]
   s.email       = 'laney@stroupsolutions.com'
   s.files       = ["lib/twelve_days_of_christmas.rb"] + Dir['lib/**/*']
+  s.executables << 'run'
   s.homepage    = "https://github.com/laneystroup/twelve_days_of_christmas"
   s.license       = 'MIT'
 end
