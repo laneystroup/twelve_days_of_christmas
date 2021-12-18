@@ -2,4 +2,4 @@
 
 echo "Starting The Twelve Days of Christmas..."
 
-ruby -e "load './twelve_days_of_christmas.rb'; TwelveDaysOfChristmas::Song.print"
+ruby -e "load './lib/twelve_days_of_christmas.rb'; TwelveDaysOfChristmas::Song.new.print"
