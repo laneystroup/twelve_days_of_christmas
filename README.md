@@ -2,9 +2,10 @@
 
 Directions:
 - clone repo
-- cd to root directly
+- cd to root directory
 - run the ruby script ("ruby -Ilib ./bin/run")
 - enjoy!
-(or, you can view the output.txt file above to save time)
+
+(or, you can click [output.txt](https://github.com/laneystroup/twelve_days_of_christmas/blob/master/output.txt) above to save time)
 
 As featured in [The Twelve Days of Christmas, Refactored](http://www.stroupsolutions.com/blog/twelve-days-of-christmas.html).
